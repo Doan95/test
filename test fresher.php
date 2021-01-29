@@ -9,7 +9,7 @@
         });
         $output = array_merge($output, $matchArr);
     }
-    echo($output);
+    dd($output);
 2. //Tìm tổng lớn nhất của 2 phần tử trong mảng số nguyên:
 
 $input = [0, 100, -4, 8, 143, 5, 99, 100];
@@ -17,10 +17,11 @@ $firstMax = max($input);
 array_splice($input, array_search($firstMax, $input), 1);
 $secondMax = max($input);
 $sum = $firstMax + $secondMax;
-echo ($sum);
+dd ($sum);
 
 3.
     $input = [1, 5, 4, 7, 9, 0, -10, 13, 93, 14, 15];
+
 
         sort($input);
 
@@ -58,4 +59,4 @@ echo ($sum);
             return $element['store'];
         }, $output);
 
-        echo($output);
+        dd($output);
