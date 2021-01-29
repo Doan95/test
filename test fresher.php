@@ -18,3 +18,44 @@ array_splice($input, array_search($firstMax, $input), 1);
 $secondMax = max($input);
 $sum = $firstMax + $secondMax;
 echo ($sum);
+
+3.
+    $input = [1, 5, 4, 7, 9, 0, -10, 13, 93, 14, 15];
+
+        sort($input);
+
+        $lengthInput = count($input);
+
+        $output = [];
+
+        for ($i=0; $i < $lengthInput; $i++) {
+            if ($i === $lengthInput - 1) {
+                break;
+            }
+
+
+            $output[] = [
+                'diff' => $input[$i + 1] - $input[$i],
+                'store' => [$input[$i], $input[$i + 1]]
+            ];
+        }
+
+
+        $diffArr = array_map(function ($element) {
+            return $element['diff'];
+        }, $output);
+
+
+        $minDiff = min($diffArr);
+
+
+        $output = array_filter($output, function($element) use ($minDiff) {
+            return $element['diff'] == $minDiff;
+        });
+
+
+        $output = array_map(function ($element) {
+            return $element['store'];
+        }, $output);
+
+        echo($output);
